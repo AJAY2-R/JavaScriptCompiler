@@ -1,8 +1,20 @@
-#ifndef TOKEN_H
-#define TOKEN_H
+#ifndef LEXER_H
+#define LEXER_H
 
-#include<string>
-#include<unordered_map>
+#include <string>
+#include <vector>
+#include "Token.h"
 
+class Lexer {
+public:
+	Lexer(const std::string& input);
+	Token getNextToken();
+	std::vector<Token> tokenize();
+private:
+	std::string sourceCode;
+	size_t currentPos;
+	char getNextChar();
+	void skipWhiteSpace();
+};
 
-#endif // !TOKEN_H
+#endif // !1
